@@ -1,0 +1,6 @@
+{
+  "editor.formatOnSave": true,
+  "workbench.colorTheme": "Dracula Theme Soft",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.fontSize": 16
+}

@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "learn express and mongodb",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -19,5 +20,16 @@
   "dependencies": {
     "express": "^5.1.0",
     "nodemon": "^3.1.10"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.1",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^5.5.4",
+    "eslint-plugin-react": "^7.37.5",
+    "prettier": "^3.6.2"
   }
 }
