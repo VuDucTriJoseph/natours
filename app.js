@@ -7,8 +7,12 @@ import userRouter from './routes/userRouters.js';
 
 const app = express();
 // 1. middleware
-app.use(morgan('dev'));
+if (process.env.NODE_ENV === 'evelopment') {
+  app.use(morgan('dev'));
+}
+
 app.use(express.json());
+app.use(express.static('./public'));
 
 // app.use((req, res, next) => {
 //   console.log('Hello from middleware');

@@ -19,7 +19,7 @@ const checkID = (req, res, next, val) => {
 
 const checkBody = (req, res, next) => {
   //   console.log(`Tour id is: ${val}`);
-  console.log(req.body.name, req.body.price);
+  // console.log(req.body.name, req.body.price);
   if (!req.body.name || !req.body.price) {
     return res.status(400).json({
       status: 'fail',
