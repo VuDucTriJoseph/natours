@@ -39,7 +39,33 @@ const getAllTours = async (req, res) => {
   //   data: { tours },
   // });
   try {
-    const tours = await Tour.find();
+    // BUILD QUERY
+    //filltering
+    // console.log(req.query);
+    const queryObj = { ...req.query };
+    const excludeFields = ['page', 'sort', 'limit', 'fields'];
+    excludeFields.forEach((el) => delete queryObj[el]);
+    // console.log(req.query, queryObj);
+
+    //advanced filtering
+    let queryStr = JSON.stringify(queryObj);
+    queryStr = queryStr.replace(/\b(gte|gt|lte|lt)\b/g, (match) => `$${match}`);
+
+    // console.log(JSON.parse(queryStr));
+
+    const query = Tour.find(JSON.parse(queryStr));
+
+    // const query =  Tour.find()
+    //   .where('duration')
+    //   .equals(5)
+    //   .where('difficulty')
+    //   .equals('easy');
+
+    // EXECUTE QUERY
+    const tours = await query;
+
+    //SEND RESPONSE
+
     res.status(200).json({
       status: 'success',
       result: tours.length,

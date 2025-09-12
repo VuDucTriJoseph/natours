@@ -1,6 +1,7 @@
 import express from 'express';
 
 import morgan from 'morgan';
+import qs from 'qs';
 
 import tourRouter from './routes/tourRouters.js';
 import userRouter from './routes/userRouters.js';
@@ -10,7 +11,7 @@ const app = express();
 if (process.env.NODE_ENV === 'evelopment') {
   app.use(morgan('dev'));
 }
-
+app.set('query parser', (str) => qs.parse(str));
 app.use(express.json());
 app.use(express.static('./public'));
 
